@@ -4,9 +4,6 @@ int motor1B = 10;  // Motor 1: Negative terminal
 int motor2A = 11;  // Motor 2: Positive terminal
 int motor2B = 12;  // Motor 2: Negative terminal
 
-// Buzzer Pin
-int buzzerPin = 7;
-
 char receivedData;  // Variable to store received data from Bluetooth
 
 void setup() 
@@ -15,8 +12,6 @@ void setup()
   pinMode(motor1B, OUTPUT);
   pinMode(motor2A, OUTPUT);
   pinMode(motor2B, OUTPUT);
-  
-  pinMode(buzzerPin, OUTPUT); // Configure buzzer pin as an output
   
   Serial.begin(9600);  // Start serial communication
 }
@@ -30,15 +25,6 @@ void loop()
   }
 
   // Control based on received data
-  if (receivedData == 'V')  // Turn on the horn
-  { 
-    digitalWrite(buzzerPin, HIGH); 
-  }
-  
-  if (receivedData == 'v')  // Turn off the horn
-  {
-    digitalWrite(buzzerPin, LOW); 
-  }
   
   if (receivedData == 'F')  // Move forward
   {
